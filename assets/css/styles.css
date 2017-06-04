@@ -1,0 +1,130 @@
+
+html{
+	height:100%;
+	overflow: auto;
+}
+body{
+	height:100%;
+	overflow: auto;
+	margin:0;
+	text-align: center;
+}
+.start-css-button{
+	position:absolute;
+	margin:0 auto;
+	top:150px;
+	left:43%;
+
+}
+#controls{
+	position:relative;
+}
+#timer{
+	color:red;
+	font-size: 40px;
+}
+button{
+		font-size:30px;
+		margin:20px;
+
+	}
+#wrapper{
+	clear:both;
+	overflow:auto;
+	background-image: url("../images/forest1.jpg");
+	background-size:100% 100%;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+#titleArea{
+	/*background-color:rgba(255,0,255,.5);
+	height:50px;
+	width: 50px;*/
+	margin:0 auto;
+	display:inline-block;
+	text-align: center;
+
+}
+#title{
+	
+	font: bold italic 50px Georgia ;
+	/*position:relative;*/
+	
+}
+
+
+
+.clip-text_one {
+    background-image: url("../images/snow.png");
+    
+		
+}
+/*.demo {
+font: bold italic 5em/1.5 Georgia ;
+
+    
+  }*/
+header{
+	margin-top:50px;
+	margin-bottom:0px;
+}
+
+#titleArea {
+	width: 100%;
+  height: auto;
+  background: url("../images/forest1.jpg") no-repeat;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+
+  	overflow:auto;
+	
+	background-size:100% 100%;
+	
+  
+  color:black;
+}
+#questionArea {
+	width:auto;
+	height:auto;
+	
+	background-size: 100% 100%;
+	/*padding:40px;*/
+
+}
+.fox-background{
+	background-image: url("../images/fox.jpg");
+}
+.snow{
+	background: url("../images/snow.png") no-repeat;
+	/*height:auto;
+	width:auto;*/	
+	z-index:-1;
+	/*padding:30px;*/
+}
+#border-image{
+	margin:5% 15%;
+}
+
+#options{
+	color:black;
+}
+#foxSVG{
+	width:800px;
+	height:500px;
+}
+
+
+#foxPic {
+	height:100%;
+	width:100%;
+	x:0;
+	y:0;
+    clip-path: url(#theSVGPath);
+}
+/*.rect{
+	stroke:#000000; 
+	stroke-miterlimit:10;
+}*/
