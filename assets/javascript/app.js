@@ -1,49 +1,73 @@
 $(document).ready(function(){
-
     var right=0;
     var wrong=0;
+    var unanswered=0;
     var timeUp=0;
     var q1={question:"A female fox is called a.. ",
-    	wrong1:"Ewe",
-    	wrong2:"Diva",
-    	wrong3:"Meer", 
-    	right:"Vixen"};
+        wrong1:"Ewe",
+        wrong2:"Diva",
+        wrong3:"Meer", 
+        right:"Vixen"};
     var q2={question:" A male fox is called a..  ",
-    	wrong1:"Dob",
-    	wrong2:"Kiper",
-    	wrong3:"Tom", 
-    	right:"Dog"};
+        wrong1:"Dob",
+        wrong2:"Kiper",
+        wrong3:"Tom", 
+        right:"Dog"};
      var q3={question:" To hunt a fox uses the help of  ",
-    	wrong1:"Heightened heat sensing",
-    	wrong2:"gravitational fields",
-    	wrong3:"echo location", 
-    	right:"The Earth's magnetic field"};
+        wrong1:"Heightened heat sensing",
+        wrong2:"gravitational fields",
+        wrong3:"echo location", 
+        right:"The Earth's magnetic field"};
      var q4={question:"What does the fox say? ",
-    	wrong1:"bark",
-    	wrong2:"scream",
-    	wrong3:"gecker", 
-    	right:"All of the others"};
+        wrong1:"bark",
+        wrong2:"scream",
+        wrong3:"gecker", 
+        right:"All of the others"};
 
 
-	var questionObjArray=[q1,q2,q3,q4];
+    var questionObjArray=[q1,q2,q3,q4];
+    //var questionObjArray=[q1];
+
     var timeToAnswer=10;
-	$('#startButt').click(function(){
+    
+    var startImage="<img src='assets/images/fox.jpg' id='foxStartImage' />";
+    var startButton="<button id='startButt' class='start-button'>START</button>";
+    $('#controls').append(startButton);
+    $("#controls").append(startImage);
+
+    
+    $('#startButt').click(function(){
         start();
     });
-    var SVGImage;
+    
     var startButton;
-    //$("#title").animate({left: "100vw"},1000)
-    //setTimeout(tenSeconds, 10000);
-    // setInterval(moveTitle, 1000);
-    // function moveTitle(){
-    //     $("#title").animate({left: "100vw"},1000)
-    //     $("#title").css('left', '0px' );
-    // }
+    $("#title").html("TRIVIA GAME");
+   
+
+function reset(){
+    right=0;
+    wrong=0;
+    unanswered=0;
+        
+	questionObjArray=[q1,q2,q3,q4];
+    
+    $("#controls").empty();
+    $("#controls").append(startButton);
+    $("#controls").append(startImage);
+    $("#border-image").css("padding",'0px');
+    $("#questionArea").css("padding",'0px');
+
+	$('#startButt').click(function(){start();});
+    $('#newGameButton').remove();
+    $('#options').empty();
+    $("#title").html("TRIVIA GAME");
+   
+}
 
 function start(){
     
     timer.startTime(timeToAnswer);
-    startButton=$("#startButt").detach();
+    $("#controls").empty();
     $("#options").empty();
     $('#options').css('text-align', 'left');
     $("#title").empty();
@@ -65,10 +89,7 @@ function start(){
         var newArray=[];
         for(var i=0; array.length>0; i++){
             var j=Math.floor(Math.random()*array.length);
-            console.log(j);
-            console.log(array);
             var item=array[j];
-            console.log(item);
             newArray.push(item);
             array.splice(j, 1);
         }
@@ -81,7 +102,7 @@ function start(){
         var id="optButt"+i;
         var optButton="<p><button class='option-button' id="+id+">"+answerArrayShuffle[i]+"</button></p>";
         $("#options").append(optButton);
-        console.log(chosenQ.right);
+        
         if(answerArrayShuffle[i]==chosenQ.right){
             $("#optButt"+i).click(function(){
                 right ++;
@@ -96,49 +117,59 @@ function start(){
             });
         }
         //class='option-button'>"+chosenQ.answerArrayShuffle[i]+"</button>";
-        console.log("ppppp");
+        
         
     }
 }
-//function checkGuess(value, currentQuestion){ for(var i=0; i<question.length; i+=1{
-//if (question[i][currentQuestion].answer===value){return value;}
-//} };
-//checkGuess('blue','Q1');
-//"blue"
 
-function timeOut(message, type){
+
+function timeOut(rightWrong, message){
     
     clearInterval(intervalId);
     
-
     $("#options").empty();
     $("#title").empty();
-    $("#timer").remove();
+    $("#controls").empty();
+    //$("#timer").remove();
     $("#title").html(message);
-    var newDiv=$("<div id='answerDiv'></div>");
-    newDiv.append("<p id='correct'>The Correct Answer Was: "+chosenQ.right+"</p>");
-    //SVGImage.appendTo("body");
- 
-    //var backgroundRem=$("#questionArea").css("background-image");
     $("#questionArea").removeClass('fox-background');
-    newDiv.addClass('correct-div');
-    newDiv.appendTo("#options");
-    $("#controls").append(startButton);
     $('#options').css('text-align', 'center');
 
-    $("#startButt").text("Next Question");
-    $("#startButt").removeClass('start-css-button');
-    $("#startButt").addClass('next-button');
-    //$("#startButt").css("top","100px");
+    var newDiv=$("<div id='answerDiv'></div>");
+    newDiv.append("<p id='correctAnswer'>The Correct Answer Was: "+chosenQ.right+"</p>");
+    newDiv.appendTo("#options");
+    var newDiv2=$("<div id=right-wrong-img-div></div>");
+    $("#controls").append(newDiv2);
+    if(rightWrong==="right"){
+        $("#correctAnswer").css("color","green");
+        $("#right-wrong-img-div").append("<img id='sadFox' class='right-wrong-img' src='assets/images/happyFox.jpg' />");
+        // var newWidth=$("#happyFox").css("width");
+        // right-wrong-img-div.css("width",newWidth);
+    }
+    else{
+        $("#correctAnswer").css("color","red");
+        $("#right-wrong-img-div").append("<img id='happyFox' class='right-wrong-img' src='assets/images/sadFox.jpg' />");
+        // var newWidth=$("#happyFox").css("width");
+        // right-wrong-img-div.css("width",newWidth);
+    }
+   
     if(questionObjArray.length==0){
         goodbye();
-    };
+    }
+    else{
+        setTimeout(start,5000);
+    }
 }
 function goodbye(){
-   $("#correct").append("<p>YOU HAVE ANSWERED ALL THE QUESTIONS</p>");
-   $("#correct").append("<p>YOU HAVE "+right+ " RIGHT ANSWERS</p>");
-   $("#correct").append("<p>YOU HAVE "+wrong+ " WRONG ANSWERS</p>")
+   // $('#controls').empty();
+   $("#answerDiv").append("<p class=>YOU HAVE ANSWERED ALL THE QUESTIONS</p>");
+   $("#answerDiv").append("<p>YOU HAVE "+right+ " RIGHT ANSWERS</p>");
+   $("#answerDiv").append("<p>YOU HAVE "+wrong+ " WRONG ANSWERS</p>");
+   $("#answerDiv").append("<p>YOU HAVE "+unanswered+ " UNANSWERED QUESTIONS</p>");
+
    $("#startButt").remove();
+   $('#right-wrong-img-div').append("<button id='newGameButton' class='new-button'>New Game</button>");
+   $('#newGameButton').click(function(){reset();})
 }
 var timeLeft;
 var intervalId;
@@ -153,8 +184,8 @@ var timer={
     //var currentTime=stopwatch.timeConverter(timeLeft);
     $('#timer').html(timeLeft);
     if(timeLeft==0){
-        wrong ++;
-        timeOut("TIME'S UP!", wrong);
+        unanswered ++;
+        timeOut("wrong", "TIME'S UP!");
     }
     
   }

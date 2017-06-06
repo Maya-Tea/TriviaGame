@@ -23,17 +23,20 @@ button{
 	width: 50%;
 	text-align:left;
 }
-.start-css-button{
+
+.start-button{
 	font-size:30px;
 	position:absolute;
-	margin:0 auto;
-	top:150px;
-	left:43%;
-
 }
-.next-button{
+.right-wrong-img-div{
+	/*position:relative;*/
+	display:inline-block;
+}
+
+.new-button{
 	font-size:30px;
-	position:relative;
+	position:absolute;
+	top:0px;
 }
 #wrapper{
 	clear:both;
@@ -45,6 +48,10 @@ button{
 	left:0;
 	width:100%;
 	height:100%;
+}
+#foxStartImage{
+	width:650px;
+	height:400px;
 }
 
 #titleArea {
@@ -84,6 +91,7 @@ button{
 #options{
 	color:black;
 	text-align:left;
+	font-family: 'Simonetta', cursive;
 }
 #timer{
 	color:red;
@@ -101,9 +109,16 @@ button{
 .fox-background{
 	background-image: url("../images/fox.jpg");
 }
-.correct-div{
-	font-size: 30px;
+#answerDiv{
+	font-size:25px;
+
 }
+#correctAnswer{
+	font-size:25px;
+	margin-bottom: 15px;
+}
+
+
 .snow{
 	background: url("../images/snow.png") no-repeat;
 	z-index:-1;
