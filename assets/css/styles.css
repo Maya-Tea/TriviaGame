@@ -9,25 +9,32 @@ body{
 	margin:0;
 	text-align: center;
 }
+header{
+	margin-top:50px;
+	margin-bottom:0px;
+}
+
+button{
+	margin:20px;
+	}
+
+.option-button{
+	font-size:25px;
+	width: 50%;
+	text-align:left;
+}
 .start-css-button{
+	font-size:30px;
 	position:absolute;
 	margin:0 auto;
 	top:150px;
 	left:43%;
 
 }
-#controls{
+.next-button{
+	font-size:30px;
 	position:relative;
 }
-#timer{
-	color:red;
-	font-size: 40px;
-}
-button{
-		font-size:30px;
-		margin:20px;
-
-	}
 #wrapper{
 	clear:both;
 	overflow:auto;
@@ -39,52 +46,20 @@ button{
 	width:100%;
 	height:100%;
 }
-#titleArea{
-	/*background-color:rgba(255,0,255,.5);
-	height:50px;
-	width: 50px;*/
+
+#titleArea {
 	margin:0 auto;
 	display:inline-block;
 	text-align: center;
-
-}
-#title{
-	
-	font: bold italic 50px Georgia ;
-	/*position:relative;*/
-	
-}
-
-
-
-.clip-text_one {
-    background-image: url("../images/snow.png");
-    
-		
-}
-/*.demo {
-font: bold italic 5em/1.5 Georgia ;
-
-    
-  }*/
-header{
-	margin-top:50px;
-	margin-bottom:0px;
-}
-
-#titleArea {
 	width: 100%;
-  height: auto;
-  background: url("../images/forest1.jpg") no-repeat;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+	height: auto;
+	background: url("../images/forest1.jpg") no-repeat;
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
 
-  	overflow:auto;
-	
+	overflow:auto;
 	background-size:100% 100%;
-	
-  
-  color:black;
+	color:black;
 }
 #questionArea {
 	width:auto;
@@ -94,23 +69,46 @@ header{
 	/*padding:40px;*/
 
 }
-.fox-background{
-	background-image: url("../images/fox.jpg");
-}
-.snow{
-	background: url("../images/snow.png") no-repeat;
-	/*height:auto;
-	width:auto;*/	
-	z-index:-1;
-	/*padding:30px;*/
+
+#controls{
+	position:relative;
+	margin-top:20px;
 }
 #border-image{
-	margin:5% 15%;
+	/*margin:15px 20%;*/
+	margin:15px auto;
+	width:660px;
 }
+
 
 #options{
 	color:black;
+	text-align:left;
 }
+#timer{
+	color:red;
+	font-size: 60px;
+}
+
+
+#title{
+	
+	font: bold italic 50px Georgia ;
+	/*position:relative;*/
+	
+}
+
+.fox-background{
+	background-image: url("../images/fox.jpg");
+}
+.correct-div{
+	font-size: 30px;
+}
+.snow{
+	background: url("../images/snow.png") no-repeat;
+	z-index:-1;
+}
+
 #foxSVG{
 	width:800px;
 	height:500px;
@@ -124,7 +122,15 @@ header{
 	y:0;
     clip-path: url(#theSVGPath);
 }
-/*.rect{
-	stroke:#000000; 
-	stroke-miterlimit:10;
-}*/
+
+@media screen and (max-width: 750px) {
+	#border-image{
+		width:auto;
+		margin:15px;
+		
+	}
+	#foxSVG{
+	width:500;
+	height:350;
+	}
+}

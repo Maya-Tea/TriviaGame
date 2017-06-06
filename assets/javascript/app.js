@@ -45,6 +45,7 @@ function start(){
     timer.startTime(timeToAnswer);
     startButton=$("#startButt").detach();
     $("#options").empty();
+    $('#options').css('text-align', 'left');
     $("#title").empty();
     SVGImage = $("#foxSVG").detach();
     $("#questionArea").addClass('fox-background');
@@ -115,25 +116,28 @@ function timeOut(message, type){
     $("#timer").remove();
     $("#title").html(message);
     var newDiv=$("<div id='answerDiv'></div>");
-    newDiv.append("<p id='correct'>The Correct Answer Was:"+chosenQ.right+"</p>");
+    newDiv.append("<p id='correct'>The Correct Answer Was: "+chosenQ.right+"</p>");
     //SVGImage.appendTo("body");
  
     //var backgroundRem=$("#questionArea").css("background-image");
     $("#questionArea").removeClass('fox-background');
+    newDiv.addClass('correct-div');
     newDiv.appendTo("#options");
-    startButton.appendTo("body");
+    $("#controls").append(startButton);
+    $('#options').css('text-align', 'center');
+
     $("#startButt").text("Next Question");
     $("#startButt").removeClass('start-css-button');
-    $("#startButt").css("position","relative");
-    $("#startButt").css("top","100px");
+    $("#startButt").addClass('next-button');
+    //$("#startButt").css("top","100px");
     if(questionObjArray.length==0){
         goodbye();
     };
 }
 function goodbye(){
-   $("#options").append("<p>YOU HAVE ANSWERED ALL THE QUESTIONS</p>");
-   $("#options").append("<p>YOU HAVE "+right+ " RIGHT ANSWERS</p>");
-   $("#options").append("<p>YOU HAVE "+wrong+ " WRONG ANSWERS</p>")
+   $("#correct").append("<p>YOU HAVE ANSWERED ALL THE QUESTIONS</p>");
+   $("#correct").append("<p>YOU HAVE "+right+ " RIGHT ANSWERS</p>");
+   $("#correct").append("<p>YOU HAVE "+wrong+ " WRONG ANSWERS</p>")
    $("#startButt").remove();
 }
 var timeLeft;
