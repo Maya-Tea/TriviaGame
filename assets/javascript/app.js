@@ -14,7 +14,7 @@ $(document).ready(function(){
         wrong3:"Tom", 
         right:"Dog"};
      var q3={question:" To hunt a fox uses the help of  ",
-        wrong1:"Heightened heat sensing",
+        wrong1:"heat sensing",
         wrong2:"gravitational fields",
         wrong3:"echo location", 
         right:"The Earth's magnetic field"};
@@ -41,7 +41,7 @@ $(document).ready(function(){
     });
     
     var startButton;
-    $("#title").html("TRIVIA GAME");
+    $("#title").html("FOX TRIVIA");
    
 
 function reset(){
@@ -60,7 +60,7 @@ function reset(){
 	$('#startButt').click(function(){start();});
     $('#newGameButton').remove();
     $('#options').empty();
-    $("#title").html("TRIVIA GAME");
+    $("#title").html("FOX TRIVIA");
    
 }
 
