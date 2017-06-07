@@ -13,19 +13,44 @@ $(document).ready(function(){
         wrong2:"Kiper",
         wrong3:"Tom", 
         right:"Dog"};
-     var q3={question:" To hunt a fox uses the help of  ",
+    var q3={question:" To hunt a fox uses the help of  ",
         wrong1:"heat sensing",
         wrong2:"gravitational fields",
         wrong3:"echo location", 
-        right:"The Earth's magnetic field"};
-     var q4={question:"What does the fox say? ",
+        right:"the Earth's magnetic field"};
+    var q4={question:"What does the fox say? ",
         wrong1:"bark",
         wrong2:"scream",
         wrong3:"gecker", 
-        right:"All of the others"};
+        right:"all of the others"};
+    var q5={question:"Foxes are the only canine who can ...",
+        wrong1:"walk upright",
+        wrong2:"lift 20 times their weight",
+        wrong3:"purr", 
+        right:"retract their claws"};
+    var q6={question:"Bat eared foxes ...",
+        wrong1:"eat their young",
+        wrong2:"hibernate",
+        wrong3:"fly", 
+        right:"listen for insects"};
+    var q7={question:"What won't a fox do? ",
+        wrong1:"run up to 23 MPH",
+        wrong2:"eat plants",
+        wrong3:"hunt at night", 
+        right:"attack and kill humans"};
+    var q8={question:"A group of foxes is called a ... ",
+        wrong1:"skulk",
+        wrong2:"leash",
+        wrong3:"harem", 
+        right:"skulk or leash"};
+    var q9={question:"What is not a type of fox? ",
+        wrong1:"marble fox",
+        wrong2:"cross fox",
+        wrong3:"kit fox", 
+        right:"cat fox"};
 
 
-    var questionObjArray=[q1,q2,q3,q4];
+    var questionObjArray=[q1,q2,q3,q4,q5,q6,q7,q8,q9];
     //var questionObjArray=[q1];
 
     var timeToAnswer=10;
@@ -34,7 +59,6 @@ $(document).ready(function(){
     var startButton="<button id='startButt' class='start-button'>START</button>";
     $('#controls').append(startButton);
     $("#controls").append(startImage);
-
     
     $('#startButt').click(function(){
         start();
@@ -49,7 +73,7 @@ function reset(){
     wrong=0;
     unanswered=0;
         
-	questionObjArray=[q1,q2,q3,q4];
+	questionObjArray=[q1,q2,q3,q4,q5,q6,q7,q8,q9];
     
     $("#controls").empty();
     $("#controls").append(startButton);
@@ -142,22 +166,18 @@ function timeOut(rightWrong, message){
     $("#controls").append(newDiv2);
     if(rightWrong==="right"){
         $("#correctAnswer").css("color","green");
-        $("#right-wrong-img-div").append("<img id='sadFox' class='right-wrong-img' src='assets/images/happyFox.jpg' />");
-        // var newWidth=$("#happyFox").css("width");
-        // right-wrong-img-div.css("width",newWidth);
+        $("#right-wrong-img-div").append("<img id='happyFox' class='right-wrong-img' src='assets/images/happyFox.jpg' />");
     }
     else{
         $("#correctAnswer").css("color","red");
-        $("#right-wrong-img-div").append("<img id='happyFox' class='right-wrong-img' src='assets/images/sadFox.jpg' />");
-        // var newWidth=$("#happyFox").css("width");
-        // right-wrong-img-div.css("width",newWidth);
+        $("#right-wrong-img-div").append("<img id='sadFox' class='right-wrong-img' src='assets/images/sadFox.jpg' />");
     }
    
     if(questionObjArray.length==0){
         goodbye();
     }
     else{
-        setTimeout(start,5000);
+        setTimeout(start,4000);
     }
 }
 function goodbye(){

@@ -17,6 +17,9 @@ header{
 button{
 	margin:20px;
 	}
+button:hover{
+	border: 1px solid green;
+}
 
 .option-button{
 	font-size:25px;
@@ -25,18 +28,26 @@ button{
 }
 
 .start-button{
-	font-size:30px;
+	font-size:50px;
 	position:absolute;
+		font-family: 'Simonetta', cursive;
 }
-.right-wrong-img-div{
-	/*position:relative;*/
+#right-wrong-img-div{
+	position:relative;
 	display:inline-block;
+	
 }
 
 .new-button{
 	font-size:30px;
 	position:absolute;
-	top:0px;
+	left:0px;
+	margin:0px auto;
+	bottom:10px;
+	width:100%;
+}
+#happyFox{
+	padding:0 20;
 }
 #wrapper{
 	clear:both;
@@ -71,7 +82,7 @@ button{
 #questionArea {
 	width:auto;
 	height:auto;
-	
+	line-height:1.5;
 	background-size: 100% 100%;
 	/*padding:40px;*/
 
@@ -114,8 +125,10 @@ button{
 
 }
 #correctAnswer{
-	font-size:25px;
+	font-size:30px;
 	margin-bottom: 15px;
+	background-color:white;
+	border:2px solid;
 }
 
 
@@ -130,7 +143,7 @@ button{
 }
 
 
-#foxPic {
+/*#foxPic {
 	height:100%;
 	width:100%;
 	x:0;
@@ -148,4 +161,4 @@ button{
 	width:500;
 	height:350;
 	}
-}
+}*/
